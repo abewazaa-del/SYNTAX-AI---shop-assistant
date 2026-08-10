@@ -93,15 +93,7 @@ While testing, the bot occasionally invented plausible-sounding details that wer
 
 ## Sample Conversation
 
-```
-Customer: How long does delivery usually take?
-Bot: Delivery usually takes 3–5 business days within the country.
-     If you need it faster, we also offer express shipping
-     (1–2 days) for an additional fee. Anything else I can help with?
-
-Customer: /reset
-Bot: Chat history cleared ✅
-```
+Real tested conversations from the Telegram bot, showing multi-language support, the `/reset` command, and both Tools in action:
 
 ![Shipping and returns test](screenshots/telegram-conversation-1.jpg)
 ![Stock check and reset test](screenshots/telegram-conversation-2.jpg)
