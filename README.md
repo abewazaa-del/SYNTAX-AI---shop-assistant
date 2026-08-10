@@ -50,8 +50,7 @@ Confirm to customer               Read chat history (Google Sheets)
                                   Log the bot's response
 ```
 
-![Workflow overview](<img width="1710" height="584" alt="Снимок экрана 2026-08-10 122632" src="https://github.com/user-attachments/assets/099aeace-dfb9-49bc-9844-76640c0f2de5" />
-)
+![Workflow overview](screenshots/01-workflow-overview.png)
 
 ## Tech Stack
 
@@ -104,7 +103,10 @@ Customer: /reset
 Bot: Chat history cleared ✅
 ```
 
-![Sample Telegram conversation](screenshots/05-telegram-conversation.png)
+![Sample Telegram conversation](screenshots/telegram_conversation#1.jpg)
+[](screenshots/telegram_conversation#2.jpg)
+[](screenshots/telegram_conversation#3.jpg)
+[](screenshots/telegram_conversation#4.jpg)
 
 ## Possible Extensions
 
