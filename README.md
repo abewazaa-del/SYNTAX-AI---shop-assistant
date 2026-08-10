@@ -103,10 +103,10 @@ Customer: /reset
 Bot: Chat history cleared ✅
 ```
 
-![Sample Telegram conversation](screenshots/telegram_conversation#1.jpg)
-![Tool test 1](screenshots/telegram_conversation#2.jpg)
-![Tool test 2](screenshots/telegram_conversation#3.jpg)
-![Tool test 3](screenshots/telegram_conversation#4.jpg)
+![Shipping and returns test](screenshots/telegram-conversation-1.jpg)
+![Stock check and reset test](screenshots/telegram-conversation-2.jpg)
+![Payment and multilingual test](screenshots/telegram-conversation-3.jpg)
+![Combined Tools test](screenshots/telegram-conversation-4.png)
 
 ## Possible Extensions
 
