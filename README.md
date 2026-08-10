@@ -95,10 +95,10 @@ While testing, the bot occasionally invented plausible-sounding details that wer
 
 Real tested conversations from the Telegram bot, showing multi-language support, the `/reset` command, and both Tools in action:
 
-![Shipping and returns test](screenshots/telegram-conversation-1.jpg)
-![Stock check and reset test](screenshots/telegram-conversation-2.jpg)
-![Payment and multilingual test](screenshots/telegram-conversation-3.jpg)
-![Combined Tools test](screenshots/telegram-conversation-4.png)
+![Shipping and returns test](screenshots/telegram_conversation-1.jpg)
+![Stock check and reset test](screenshots/telegram_conversation-2.jpg)
+![Payment and multilingual test](screenshots/telegram_conversation-3.jpg)
+![Combined Tools test](screenshots/telegram_conversation-4.png)
 
 ## Possible Extensions
 
