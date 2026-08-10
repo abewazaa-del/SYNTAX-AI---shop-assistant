@@ -104,9 +104,9 @@ Bot: Chat history cleared ✅
 ```
 
 ![Sample Telegram conversation](screenshots/telegram_conversation#1.jpg)
-[](screenshots/telegram_conversation#2.jpg)
-[](screenshots/telegram_conversation#3.jpg)
-[](screenshots/telegram_conversation#4.jpg)
+![Tool test 1](screenshots/telegram_conversation#2.jpg)
+![Tool test 2](screenshots/telegram_conversation#3.jpg)
+![Tool test 3](screenshots/telegram_conversation#4.jpg)
 
 ## Possible Extensions
 
