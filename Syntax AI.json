@@ -1,0 +1,1244 @@
+{
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "56214f81-5564-4ecc-ab00-4b83a84ce041",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.5,
+      "position": [
+        0,
+        112
+      ],
+      "webhookId": "3eadcd39-84af-4eb6-ad43-d235fafaee2d",
+      "credentials": {
+        "telegramApi": {
+          "id": "DzLal6rdLvZNPn6h",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "55120084-45f4-442e-89c1-3f6faafe3e1c",
+              "leftValue": "={{ $json.message.text }}",
+              "rightValue": "/reset",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
+        "options": {}
+      },
+      "id": "92474f06-de8c-456a-873d-f6f99869e8e5",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        448,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Lapas1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "chat_id": "={{ $json.message.chat.id }}",
+            "role": "user",
+            "message": "={{ $json.message.text }}",
+            "timestamp": "={{ $now }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "chat_id",
+              "displayName": "chat_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "cdc25a37-f2ea-460a-a305-5b3f6e40c4be",
+      "name": "Append row in sheet1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        672,
+        112
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Lapas1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=0"
+        },
+        "options": {}
+      },
+      "id": "64a88145-c1c9-4919-b0f0-23030b5f4de1",
+      "name": "Get row(s) in sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1120,
+        112
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1902756020,
+          "mode": "list",
+          "cachedResultName": "FAQ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=1902756020"
+        },
+        "options": {}
+      },
+      "id": "a50c2cae-18ce-4156-b99b-88287101b790",
+      "name": "Get row(s) in sheet1",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1376,
+        112
+      ],
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const historyRows = $('Get row(s) in sheet').all();\nconst lastN = historyRows.slice(-5); // last 5 log messages\nconst history = lastN.map(item => `${item.json.role}: ${item.json.message}`).join('\\n');\n\nconst knowledgeRows = $('Get row(s) in sheet1').all(); // FAQ sheet\nconst knowledge = knowledgeRows.map(item => `${item.json.topic}: ${item.json.answer}`).join('\\n');\n\nconst originalMessage = $('Telegram Trigger').item.json.message.text;\n\nreturn [{\n  json: {\n    history: history,\n    userMessage: originalMessage,\n    knowledge: knowledge\n  }\n}];"
+      },
+      "id": "eeb35335-2344-42fb-85dd-af8e98540406",
+      "name": "Code in JavaScript",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1584,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.userMessage }}",
+        "options": {
+          "systemMessage": "=You are a virtual assistant for the company. Your job is to help customers with everyday questions: business hours, services, prices, bookings, location, contact info, and other practical questions about the business.\n\nCommunication rules:\n- Reply in the same language the user writes in. If they write in Russian, reply in Russian; if in English, reply in English; and so on.\n- Be friendly but concise — don't stretch out answers unnecessarily.\n- If you don't know the exact answer (for example, a current price or available booking time), honestly say it needs to be confirmed with a staff member, and never invent information.\n- If the question isn't related to the business (general topics, unrelated requests), politely steer the conversation back to how you can help with company-related questions.\n- Use the conversation history (if available) for context, but don't unnecessarily repeat what's already been said.\n\nIf the customer asks about an order status — use the order lookup tool.\n\nHere is the history of the previous conversation:\n{{ $json.history }}\n\nContinue the conversation taking this context into account.\n\nHere are the facts about the company — use them to answer:\n{{ $json.knowledge }}\n\nAnswer ONLY based on data returned by the tools (Google Sheets). Never invent details that aren't in the data — for example, package location, tracking numbers, or exact dates, if that information isn't in the sheet. If the data is insufficient, honestly say so and suggest the customer contact a manager (WITHOUT INVENTING THEIR CONTACT DETAILS).\n\nWhen reporting whether a product is in stock or not, use plain, natural language — never use technical field names (don't use \"stock_quantity\", \"order_id\", or similar column names in your reply to the customer). For example, instead of \"stock_quantity = 0,\" simply say \"unfortunately, this item is currently out of stock.\"\n\nNEVER invent contact details (phone numbers, emails, addresses) that aren't literally present in the Knowledge/Orders data. If a customer asks for a manager's contact and there's no exact contact info in the data, say: \"I can't provide an up-to-date contact right now — please check our channel/website.\""
+        }
+      },
+      "id": "0f61d889-dda2-4388-a4ef-8ff3bec6d9ab",
+      "name": "AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1792,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-20b",
+        "options": {
+          "temperature": 0.3
+        }
+      },
+      "id": "2cab2b05-8ab5-447c-9ed8-a0db10ad54bc",
+      "name": "Groq Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        1584,
+        336
+      ],
+      "credentials": {
+        "groqApi": {
+          "id": "IIRT0Ja7lqd2pN12",
+          "name": "Groq account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "contextWindowLength": 10
+      },
+      "id": "7ec4174a-567f-4682-9e8b-0436a7b187a2",
+      "name": "Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        1712,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use this tool when the customer asks about the status of their order.\nThe order ID (order_id) is required — if the customer hasn't provided it, ask for the order number first.",
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1247517441,
+          "mode": "list",
+          "cachedResultName": "Orders",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=1247517441"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "order_id",
+              "lookupValue": "={{ $fromAI('values0_Value', `The order ID the customer wants to check the status of`, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "64e6622d-cd7c-4107-aeb4-c6a4788591c3",
+      "name": "Get row(s) in sheet in Google Sheets",
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        1952,
+        320
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Используй этот инструмент, когда клиент спрашивает о наличии конкретного товара на складе. Нужно название товара.",
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1790080520,
+          "mode": "list",
+          "cachedResultName": "Stock",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=1790080520"
+        },
+        "options": {}
+      },
+      "id": "7ae75450-8833-4cf9-8e52-b477d100198b",
+      "name": "Get row(s) in sheet in Google Sheets1",
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        2144,
+        256
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "id": "d92d831b-ba77-4a70-9990-93e6cd81cae6",
+      "name": "Send a text message",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        2144,
+        112
+      ],
+      "webhookId": "d2a30135-c3cd-4ac1-adf6-24803393086c",
+      "credentials": {
+        "telegramApi": {
+          "id": "DzLal6rdLvZNPn6h",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Lapas1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "chat_id": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+            "message": "={{ $json.text }}",
+            "timestamp": "={{ $now }}",
+            "role": "bot"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "chat_id",
+              "displayName": "chat_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "fe39a766-4f16-477d-857b-0943d9b4224f",
+      "name": "Append row in sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2368,
+        112
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "Cleared ✅",
+        "additionalFields": {}
+      },
+      "id": "fd11b8e5-ca56-4821-9e27-89239b2229b7",
+      "name": "Send a text message1",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1168,
+        256
+      ],
+      "webhookId": "104123de-5835-4773-a296-8f85b161999d",
+      "credentials": {
+        "telegramApi": {
+          "id": "DzLal6rdLvZNPn6h",
+          "name": "Telegram account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Lapas1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=0"
+        }
+      },
+      "id": "e2bc12d6-f483-4c8a-b384-5f75e7f4a61d",
+      "name": "Delete rows or columns from sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        720,
+        256
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "chat-widget",
+        "responseMode": "responseNode",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Access-Control-Allow-Origin",
+                "value": "*"
+              }
+            ]
+          }
+        }
+      },
+      "id": "9e016eee-b224-400c-bed0-eacf74d0651e",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        192,
+        272
+      ],
+      "webhookId": "2d8ab09f-6bcf-4799-ac6d-37e86d9cbcb5"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Lapas1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "chat_id": "={{ $json.body.sessionId || 'web-widget' }}",
+            "role": "user",
+            "message": "={{ $json.body.message }}",
+            "timestamp": "={{ $now }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "chat_id",
+              "displayName": "chat_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "f7bef393-1237-4833-98fd-2a570032dd41",
+      "name": "Web Append User Message",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        464,
+        672
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Lapas1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=0"
+        },
+        "options": {}
+      },
+      "id": "b5e7b4c8-b1f9-415e-9de0-abbeee35d421",
+      "name": "Web Get History",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        688,
+        672
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1902756020,
+          "mode": "list",
+          "cachedResultName": "FAQ",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=1902756020"
+        },
+        "options": {}
+      },
+      "id": "a87a1f2b-9340-4b0c-8d6c-53d1f4e4dce1",
+      "name": "Web Get FAQ",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        912,
+        672
+      ],
+      "executeOnce": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const historyRows = $('Web Get History').all();\nconst lastN = historyRows.slice(-5); // last 5 log messages\nconst history = lastN.map(item => `${item.json.role}: ${item.json.message}`).join('\\n');\n\nconst knowledgeRows = $('Web Get FAQ').all(); // FAQ sheet\nconst knowledge = knowledgeRows.map(item => `${item.json.topic}: ${item.json.answer}`).join('\\n');\n\nconst body = $('Webhook').item.json.body || {};\nconst originalMessage = body.message;\nconst sessionId = body.sessionId || 'web-widget';\n\nreturn [{\n  json: {\n    history: history,\n    userMessage: originalMessage,\n    knowledge: knowledge,\n    sessionId: sessionId\n  }\n}];"
+      },
+      "id": "22093cf3-d349-4238-b75b-76de55a2a103",
+      "name": "Web Build Context",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1136,
+        672
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.userMessage }}",
+        "options": {
+          "systemMessage": "=You are a virtual assistant for the company. Your job is to help customers with everyday questions: business hours, services, prices, bookings, location, contact info, and other practical questions about the business.\n\nCommunication rules:\n- Reply in the same language the user writes in. If they write in Russian, reply in Russian; if in English, reply in English; and so on.\n- Be friendly but concise — don't stretch out answers unnecessarily.\n- If you don't know the exact answer (for example, a current price or available booking time), honestly say it needs to be confirmed with a staff member, and never invent information.\n- If the question isn't related to the business (general topics, unrelated requests), politely steer the conversation back to how you can help with company-related questions.\n- Use the conversation history (if available) for context, but don't unnecessarily repeat what's already been said.\n\nIf the customer asks about an order status — use the order lookup tool.\n\nHere is the history of the previous conversation:\n{{ $json.history }}\n\nContinue the conversation taking this context into account.\n\nHere are the facts about the company — use them to answer:\n{{ $json.knowledge }}\n\nAnswer ONLY based on data returned by the tools (Google Sheets). Never invent details that aren't in the data — for example, package location, tracking numbers, or exact dates, if that information isn't in the sheet. If the data is insufficient, honestly say so and suggest the customer contact a manager (WITHOUT INVENTING THEIR CONTACT DETAILS).\n\nWhen reporting whether a product is in stock or not, use plain, natural language — never use technical field names (don't use \"stock_quantity\", \"order_id\", or similar column names in your reply to the customer). For example, instead of \"stock_quantity = 0,\" simply say \"unfortunately, this item is currently out of stock.\"\n\nNEVER invent contact details (phone numbers, emails, addresses) that aren't literally present in the Knowledge/Orders data. If a customer asks for a manager's contact and there's no exact contact info in the data, say: \"I can't provide an up-to-date contact right now — please check our channel/website.\""
+        }
+      },
+      "id": "d80f4368-6318-484e-8a75-66bd866f8d2d",
+      "name": "Web AI Agent",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1488,
+        672
+      ]
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-20b",
+        "options": {
+          "temperature": 0.3
+        }
+      },
+      "id": "c37816f5-9092-49aa-b5d1-5fab1c4134b7",
+      "name": "Web Groq Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        896
+      ],
+      "credentials": {
+        "groqApi": {
+          "id": "IIRT0Ja7lqd2pN12",
+          "name": "Groq account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Webhook').item.json.body.sessionId || 'web-widget' }}",
+        "contextWindowLength": 10
+      },
+      "id": "b01fef1e-8976-4177-9a26-427b6fee2c34",
+      "name": "Web Chat Memory",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        1488,
+        896
+      ]
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Use this tool when the customer asks about the status of their order.\nThe order ID (order_id) is required — if the customer hasn't provided it, ask for the order number first.",
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1247517441,
+          "mode": "list",
+          "cachedResultName": "Orders",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=1247517441"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "order_id",
+              "lookupValue": "={{ $fromAI('values0_Value', `The order ID the customer wants to check the status of`, 'string') }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "00d2555b-3ece-4d9d-b0a4-534669b52cd5",
+      "name": "Web Get Order Status",
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        1616,
+        896
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "Используй этот инструмент, когда клиент спрашивает о наличии конкретного товара на складе. Нужно название товара.",
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1790080520,
+          "mode": "list",
+          "cachedResultName": "Stock",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=1790080520"
+        },
+        "options": {}
+      },
+      "id": "5e7499d2-09cd-474d-8f33-a28f87ae3e9e",
+      "name": "Web Get Stock",
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        1744,
+        896
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { reply: $('Web AI Agent').item.json.output } }}",
+        "options": {}
+      },
+      "id": "07da14ba-d34d-4ec9-bda2-71d2090e55a9",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        2144,
+        544
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA",
+          "mode": "list",
+          "cachedResultName": "Workflow2 logs",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Lapas1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1UJrm4QxQlpVOVmsYqHzJf51_FkVjzgdhrarAI5GLiGA/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "chat_id": "={{ $('Webhook').item.json.body.sessionId || 'web-widget' }}",
+            "role": "bot",
+            "message": "={{ $('Web AI Agent').item.json.output }}",
+            "timestamp": "={{ $now }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "chat_id",
+              "displayName": "chat_id",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "role",
+              "displayName": "role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "message",
+              "displayName": "message",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "timestamp",
+              "displayName": "timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "545a056e-61ee-4d76-a27b-bcf16323fee2",
+      "name": "Web Append Bot Message",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2176,
+        672
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "EJLdXVisCVGwvy1Y",
+          "name": "Google Sheets account 2"
+        }
+      },
+      "onError": "continueErrorOutput"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Delete rows or columns from sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a text message": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete rows or columns from sheet": {
+      "main": [
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Web Append User Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Web Append User Message": {
+      "main": [
+        [
+          {
+            "node": "Web Get History",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Web Get History": {
+      "main": [
+        [
+          {
+            "node": "Web Get FAQ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Web Get FAQ": {
+      "main": [
+        [
+          {
+            "node": "Web Build Context",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Web Build Context": {
+      "main": [
+        [
+          {
+            "node": "Web AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Web AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Web Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Web AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Web Chat Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Web AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Web Get Order Status": {
+      "ai_tool": [
+        [
+          {
+            "node": "Web AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Web Get Stock": {
+      "ai_tool": [
+        [
+          {
+            "node": "Web AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Respond to Webhook": {
+      "main": [
+        [
+          {
+            "node": "Web Append Bot Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "b9361ab6-bce9-49ee-8d57-e03b26c72ed0",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6704b839604347348bae9383dfdca0d690720cb32aee76ee5bf28d8cfa559ec7"
+  },
+  "nodeGroups": [],
+  "id": "QYWIXlYtOEa1eXXi",
+  "tags": []
+}
