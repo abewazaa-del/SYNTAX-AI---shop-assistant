@@ -102,7 +102,7 @@ To make the same assistant deployable on a business's own site (not every custom
 
 The website widget is live on a demo storefront page, built and hosted for free on GitHub Pages:
 
-**[qweghtytest.github.io](https://qweghtytest.github.io)** — click the chat bubble in the bottom-right corner.
+**[qweghtytest.github.io](https://abewazaa-del.github.io/qweghtytest.github.io/)** — click the chat bubble in the bottom-right corner.
 
 ## Sample Conversation
 
